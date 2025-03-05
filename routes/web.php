@@ -19,6 +19,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('store/coffee', [CoffeeController::class, 'storeCoffee'])->name('store.coffee');
 
     Route::post('store/order', [OrderController::class, 'storeOrder'])->name('store.order');
+    Route::get('my/order', [OrderController::class, 'myOrder'])->name('my.order');
+
+
 
 });
 

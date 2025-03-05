@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Orders;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class OrderController extends Controller
 {
@@ -20,5 +21,15 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->route('dashboard')->with('success', 'Order created successfully.');
+    }
+
+    public function myOrder()
+    {
+        $orders = Orders::with('coffee')->where('user_id', auth()->user()->id)->get();
+
+    //    return response()->json($orders);
+        return Inertia::render('user/Order', [
+            'orders' => $orders,
+        ]);
     }
 }

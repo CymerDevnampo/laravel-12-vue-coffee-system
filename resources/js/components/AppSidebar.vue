@@ -23,7 +23,7 @@ const mainNavItems: NavItem[] = [
 
     {
         title: 'My Oders',
-        href: '/create/coffee',
+        href: '/my/order',
         icon: ShoppingCart ,
     },
 ];

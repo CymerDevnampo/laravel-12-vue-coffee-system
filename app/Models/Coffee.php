@@ -13,4 +13,10 @@ class Coffee extends Model
         'quantity',
         'image',
     ];
+
+    public function order()
+    {
+        // return $this->belongsTo(Orders::class);
+        return $this->hasMany(Orders::class, 'coffee_id');
+    }
 }
